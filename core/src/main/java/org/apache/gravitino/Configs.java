@@ -477,8 +477,9 @@ public class Configs {
       new ConfigBuilder("gravitino.stats.partition.storageFactoryClass")
           .doc(
               "The partition stats storage factory class. "
-                  + "Default is JDBC-based storage which supports MySQL, PostgreSQL, and H2.")
+                  + "Default is Lance-based storage. "
+                  + "For production use, configure JdbcPartitionStatisticStorageFactory with database settings.")
           .version(ConfigConstants.VERSION_1_0_0)
           .stringConf()
-          .createWithDefault(JdbcPartitionStatisticStorageFactory.class.getCanonicalName());
+          .createWithDefault(LancePartitionStatisticStorageFactory.class.getCanonicalName());
 }
